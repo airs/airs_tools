@@ -14,7 +14,6 @@ class JiraClient < JIRA::Client
       :context_path => config["jira.context_path"] || "",
       :auth_type => :basic
     }
-    # @client = JIRA::Client.new(options)
     super(options)
   end
   
