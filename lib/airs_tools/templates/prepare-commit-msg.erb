@@ -1,0 +1,10 @@
+#!/bin/sh
+
+BRANCH_NAME=`git symbolic-ref HEAD | sed -e 's/refs\/heads\///'`
+
+if test $BRANCH_NAME != "master"; then
+  mv $1 $1.tmp
+  echo "$BRANCH_NAME: \n" > $1
+  echo "> #time " >> $1
+  cat $1.tmp >> $1
+fi

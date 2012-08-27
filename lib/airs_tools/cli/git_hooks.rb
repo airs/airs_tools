@@ -4,9 +4,21 @@ require 'thor'
 module AirsTools
   module CLI
     class GitHooks < Thor
+      
+      desc "install_client_hooks", ""
+      def install_client_hooks
+        install_post_checkout
+        install_prepare_commit_msg
+      end
+      
       desc "install_post_checkout", ""
       def install_post_checkout
         install_hook("post-checkout")
+      end
+      
+      desc "install_prepare_commit_msg", ""
+      def install_prepare_commit_msg
+        install_hook("prepare-commit-msg")
       end
       
       protected
