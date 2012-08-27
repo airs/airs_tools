@@ -6,6 +6,8 @@ module AirsTools
     class JIRA < Thor   
       desc "start <issue_key>", ""
       def start(issue_key)
+        return unless issue_key =~ /\w{1,8}-\d{1,6}/
+        
         issue = client.Issue.find(issue_key)
         return unless ["Open", "Reopened"].include?(issue.status.name)
         
