@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'airs_tools'
+
+AirsTools::CLI::JIRA.start
